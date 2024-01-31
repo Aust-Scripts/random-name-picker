@@ -8,9 +8,13 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
   list.push(name.value);
   console.log(list);
 
-  const newListItem = document.createElement('li');
-  newListItem.textContent = name.value;
-  listContainer.appendChild(newListItem);
+  listContainer.innerHTML = '';
+
+  for (let i = list.length - 1; i >= 0; i--) {
+    const newListItem = document.createElement('li');
+    newListItem.textContent = list[i];
+    listContainer.appendChild(newListItem);
+  }
 
   name.value = '';
 });
