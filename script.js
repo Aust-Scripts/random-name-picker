@@ -18,3 +18,10 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
 
   name.value = '';
 });
+
+document.getElementById('random-name-button').addEventListener('click', () => {
+  const randomNum = Math.floor(Math.random() * list.length);
+
+  console.log(randomNum);
+  console.log(list[randomNum]);
+})
