@@ -5,6 +5,11 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
   event.preventDefault();
 
   const name = document.getElementById('name');
+
+  if (name.value === '') {
+    console.log(name.value)
+    return;
+  }
   nameList.push(name.value);
 
   listContainer.innerHTML = '';
