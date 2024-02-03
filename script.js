@@ -5,11 +5,7 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
   event.preventDefault();
 
   const name = document.getElementById('name');
-
-  if (name.value === '') {
-    console.log(name.value)
-    return;
-  }
+  if (name.value === '') return; //Ignores empty names
   nameList.push(name.value);
 
   listContainer.innerHTML = '';
