@@ -1,26 +1,26 @@
-const list = [];
+const nameList = [];
 const listContainer = document.getElementById('list');
 
 document.getElementById('name-form').addEventListener('submit', (event) => {
   event.preventDefault();
 
   const name = document.getElementById('name');
-  list.push(name.value);
+  nameList.push(name.value);
 
   listContainer.innerHTML = '';
   name.value = '';
 
-  for (let i = list.length - 1; i >= 0; i--) {
+  for (let i = nameList.length - 1; i >= 0; i--) {
     const newListItem = document.createElement('li');
-    newListItem.textContent = list[i];
+    newListItem.textContent = nameList[i];
     listContainer.appendChild(newListItem);
   };
 });
 
 document.getElementById('random-name-button').addEventListener('click', () => {
-  const randomNum = Math.floor(Math.random() * list.length);
+  const randomNum = Math.floor(Math.random() * nameList.length);
   const nameContainer = document.getElementById('random-name');
 
   nameContainer.innerHTML = '';
-  nameContainer.textContent = list[randomNum];
+  nameContainer.textContent = nameList[randomNum];
 })
