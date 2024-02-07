@@ -18,9 +18,9 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
   };
 });
 
-document.getElementById('random-name-button').addEventListener('click', () => {
+document.getElementById('get-name-button').addEventListener('click', () => {
   const randomNum = Math.floor(Math.random() * nameList.length);
-  const nameContainer = document.getElementById('random-name-display');
+  const nameContainer = document.getElementById('get-name-display');
 
   nameContainer.innerHTML = '';
   nameContainer.textContent = nameList[randomNum];
