@@ -62,7 +62,12 @@ body {
 h1 {
   font-weight: bold;
   font-size: 3rem;
-  margin: 10px;
+  margin: 20px;
+  margin-top: 40px;
+}
+
+#upper-container {
+  display: flex;
 }
 
 label {
@@ -74,21 +79,27 @@ label {
   flex-direction: column;
   text-align: center;
   margin-bottom: 10px;
+  gap: 5px;
 }
 
 #random-name-container {
   height: 50px;
-  /* border: 1px solid black;
-  border-radius: 5px; */
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
   margin: 10px;
   padding: 10px;
   text-align: center;
 }
 
 #random-name {
-  padding-top: 5px;
   font-size: 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 1.6rem;
+  padding: 5px;
+}
+
+#random-name-button {
+  margin-top: 5px;
 }
 
 li {
