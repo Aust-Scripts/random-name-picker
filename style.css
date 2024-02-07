@@ -68,12 +68,17 @@ h1 {
 
 #upper-container {
   display: flex;
+  width: 500px;
 }
 
-label {
-  font-size: 1.6rem;
+.flex-upper {
+  flex: 1;
+  max-width: 50%;
+  border: 1px solid red;
 }
 
+
+/* LEFT CONTAINER */
 #name-form {
   display: flex;
   flex-direction: column;
@@ -82,15 +87,19 @@ label {
   gap: 5px;
 }
 
+label {
+  font-size: 1.6rem;
+}
+
+
+/* RIGHT CONTAINER */
 #random-name-container {
   height: 50px;
-  /* border-bottom: 2px solid black; */
   margin: 10px;
-  padding: 10px;
   text-align: center;
 }
 
-#random-name {
+#random-name-display {
   font-size: 2rem;
   border: 1px solid black;
   border-radius: 5px;
@@ -102,6 +111,7 @@ label {
   margin-top: 5px;
 }
 
+/* NAME LIST */
 li {
   font-size: 1.6rem;
 }

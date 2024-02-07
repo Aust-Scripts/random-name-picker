@@ -20,7 +20,7 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
 
 document.getElementById('random-name-button').addEventListener('click', () => {
   const randomNum = Math.floor(Math.random() * nameList.length);
-  const nameContainer = document.getElementById('random-name');
+  const nameContainer = document.getElementById('random-name-display');
 
   nameContainer.innerHTML = '';
   nameContainer.textContent = nameList[randomNum];
