@@ -24,4 +24,9 @@ document.getElementById('get-name-button').addEventListener('click', () => {
 
   nameContainer.innerHTML = '';
   nameContainer.textContent = nameList[randomNum];
+});
+
+document.getElementById('clear-button').addEventListener('click', () => {
+  listContainer.innerHTML = '';
+  nameList.length = 0;
 })
