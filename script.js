@@ -1,5 +1,6 @@
 const nameList = [];
 const listContainer = document.getElementById('list');
+const nameContainer = document.getElementById('get-name-display');
 
 document.getElementById('name-form').addEventListener('submit', (event) => {
   event.preventDefault();
@@ -20,7 +21,6 @@ document.getElementById('name-form').addEventListener('submit', (event) => {
 
 document.getElementById('get-name-button').addEventListener('click', () => {
   const randomNum = Math.floor(Math.random() * nameList.length);
-  const nameContainer = document.getElementById('get-name-display');
 
   nameContainer.innerHTML = '';
   nameContainer.textContent = nameList[randomNum];
@@ -28,5 +28,6 @@ document.getElementById('get-name-button').addEventListener('click', () => {
 
 document.getElementById('clear-button').addEventListener('click', () => {
   listContainer.innerHTML = '';
+  nameContainer.innerHTML = '';
   nameList.length = 0;
 })
