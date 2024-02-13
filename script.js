@@ -48,9 +48,14 @@ clearButton.addEventListener('click', () => {
 window.addEventListener('load', () => {
   names = localStorage.getItem('namesList');
   namesParsed = JSON.parse(names);
+
   if (namesParsed != null) {
     nameList = namesParsed;
   };
-  console.log(localStorage.getItem('namesList'));
-  console.log(nameList);
+  
+  for (let i = nameList.length - 1; i >= 0; i--) {
+    const newListItem = document.createElement('li');
+    newListItem.textContent = nameList[i];
+    listContainer.appendChild(newListItem);
+  };
 });
