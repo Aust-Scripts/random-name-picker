@@ -2,6 +2,14 @@ let nameList = [];
 const listContainer = document.getElementById('list');
 const nameContainer = document.getElementById('get-name-display');
 
+function displayList() {
+  for (let i = nameList.length - 1; i >= 0; i--) {
+    const newListItem = document.createElement('li');
+    newListItem.textContent = nameList[i];
+    listContainer.appendChild(newListItem);
+  };
+}
+
 const form = document.getElementById('name-form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -15,16 +23,10 @@ form.addEventListener('submit', (event) => {
 
   // function addDeleteButton?
 
-  for (let i = nameList.length - 1; i >= 0; i--) {
-    const newListItem = document.createElement('li');
-    newListItem.textContent = nameList[i];
-    listContainer.appendChild(newListItem);
-  };
+  displayList();
 
   const namesStringified = JSON.stringify(nameList);
-
   localStorage.setItem('namesList', namesStringified);
-
 });
 
 
@@ -49,13 +51,10 @@ window.addEventListener('load', () => {
   names = localStorage.getItem('namesList');
   namesParsed = JSON.parse(names);
 
+  // To prevent errors trying to load a potentially null list
   if (namesParsed != null) {
     nameList = namesParsed;
   };
-  
-  for (let i = nameList.length - 1; i >= 0; i--) {
-    const newListItem = document.createElement('li');
-    newListItem.textContent = nameList[i];
-    listContainer.appendChild(newListItem);
-  };
+
+  displayList();
 });
