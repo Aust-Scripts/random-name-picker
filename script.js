@@ -2,13 +2,29 @@ let nameList = [];
 const listContainer = document.getElementById('list');
 const nameContainer = document.getElementById('get-name-display');
 
+
+function saveList() {
+  const namesStringified = JSON.stringify(nameList);
+  localStorage.setItem('namesList', namesStringified);
+}
+
 function displayList() {
   for (let i = nameList.length - 1; i >= 0; i--) {
     const newListItem = document.createElement('li');
     newListItem.textContent = nameList[i];
+    newListItem.setAttribute('data-index', i);
+
+    newListItem.addEventListener('click', (event) => {
+      event.target.remove();
+      nameList.splice(i, 1);
+      saveList();
+      console.log(nameList);
+    })
+
     listContainer.appendChild(newListItem);
   };
-}
+};
+
 
 const form = document.getElementById('name-form');
 form.addEventListener('submit', (event) => {
@@ -25,15 +41,13 @@ form.addEventListener('submit', (event) => {
 
   displayList();
 
-  const namesStringified = JSON.stringify(nameList);
-  localStorage.setItem('namesList', namesStringified);
+  saveList();
 });
 
 
 const getRandomNameButton = document.getElementById('get-name-button');
 getRandomNameButton.addEventListener('click', () => {
   const randomNum = Math.floor(Math.random() * nameList.length);
-
   nameContainer.innerHTML = '';
   nameContainer.textContent = nameList[randomNum];
 });
@@ -45,7 +59,6 @@ clearButton.addEventListener('click', () => {
   nameContainer.innerHTML = '';
   nameList.length = 0;
 });
-
 
 window.addEventListener('load', () => {
   names = localStorage.getItem('namesList');
