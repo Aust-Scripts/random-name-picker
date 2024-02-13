@@ -24,6 +24,7 @@ form.addEventListener('submit', (event) => {
   const namesStringified = JSON.stringify(nameList);
 
   localStorage.setItem('namesList', namesStringified);
+
 });
 
 
@@ -46,4 +47,10 @@ clearButton.addEventListener('click', () => {
 
 window.addEventListener('load', () => {
   names = localStorage.getItem('namesList');
+  namesParsed = JSON.parse(names);
+  if (namesParsed != null) {
+    nameList = namesParsed;
+  };
+  console.log(localStorage.getItem('namesList'));
+  console.log(nameList);
 });
