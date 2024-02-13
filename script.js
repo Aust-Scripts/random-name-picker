@@ -2,7 +2,6 @@ let nameList = [];
 const listContainer = document.getElementById('list');
 const nameContainer = document.getElementById('get-name-display');
 
-
 function saveList() {
   const namesStringified = JSON.stringify(nameList);
   localStorage.setItem('namesList', namesStringified);
@@ -13,21 +12,19 @@ function displayList() {
     const newListItem = document.createElement('li');
     newListItem.textContent = nameList[i];
     newListItem.setAttribute('data-index', i);
-
+    
     newListItem.addEventListener('click', (event) => {
       event.target.remove();
       nameList.splice(i, 1);
       saveList();
-      console.log(nameList);
     })
 
     listContainer.appendChild(newListItem);
   };
 };
 
-
-const form = document.getElementById('name-form');
-form.addEventListener('submit', (event) => {
+const nameInputForm = document.getElementById('name-form');
+nameInputForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const name = document.getElementById('name');
@@ -37,13 +34,9 @@ form.addEventListener('submit', (event) => {
   listContainer.innerHTML = '';
   name.value = '';
 
-  // function addDeleteButton?
-
   displayList();
-
   saveList();
 });
-
 
 const getRandomNameButton = document.getElementById('get-name-button');
 getRandomNameButton.addEventListener('click', () => {
@@ -61,8 +54,8 @@ clearButton.addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-  names = localStorage.getItem('namesList');
-  namesParsed = JSON.parse(names);
+  const namesStored = localStorage.getItem('namesList');
+  const namesParsed = JSON.parse(namesStored);
 
   // To prevent errors trying to load a potentially null list
   if (namesParsed != null) {
